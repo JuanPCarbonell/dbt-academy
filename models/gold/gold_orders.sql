@@ -19,7 +19,7 @@ SELECT
     END                                                             AS order_size_band,
     {{ revenue_tier('net_revenue') }}                               AS revenue_tier,
     YEAR(order_date) AS order_year,
-    MONTH(order_date) AS order_year,
+    MONTH(order_date) AS order_month,
     CURRENT_TIMESTAMP()                                             AS loaded_at
 FROM {{ ref('silver_orders_enriched') }}
 
