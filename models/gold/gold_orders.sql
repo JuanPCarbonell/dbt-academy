@@ -18,6 +18,7 @@ SELECT
         ELSE 'Small'
     END                                                             AS order_size_band,
     {{ revenue_tier('net_revenue') }}                               AS revenue_tier,
+    YEAR(order_date) AS order_year,
     CURRENT_TIMESTAMP()                                             AS loaded_at
 FROM {{ ref('silver_orders_enriched') }}
 
